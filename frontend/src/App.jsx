@@ -28,11 +28,11 @@ function App() {
     },
      {
       path:"/about",
-      element:<><Navbar></Navbar> <About></About></>
+      element:<><Navbar></Navbar> <About></About><Footer></Footer></>
     },
      {
       path:"/contact",
-      element:<><Navbar></Navbar><Contact></Contact> </>
+      element:<><Navbar></Navbar><Contact></Contact> <Footer></Footer></>
     },
     {
       path:"/product/:productId",
@@ -44,15 +44,15 @@ function App() {
     },
     {
       path:"/login",
-      element:<><Navbar></Navbar> <Login></Login></>
+      element:<><Navbar></Navbar> <Login></Login><Footer></Footer></>
     },
     {
       path:"/place-order",
-      element:<><Navbar></Navbar> <PlaceOrder></PlaceOrder></>
+      element:<><ShopContextProvider><Navbar></Navbar> <PlaceOrder></PlaceOrder><Footer></Footer></ShopContextProvider></>
     },
     {
       path:"/orders",
-      element:<><Navbar></Navbar><Orders></Orders></>
+      element:<><ShopContextProvider><Navbar></Navbar><Orders></Orders><Footer></Footer></ShopContextProvider></>
     }
 
   ])

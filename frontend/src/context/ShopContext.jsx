@@ -8,8 +8,13 @@ const ShopContextProvider=({children})=>{
     const delivery_fee=10;
    
     const[cartItem,setCartItem]=useState([]);
-    const [price,setPrice]=useState(0);
-    const addToCart=(item,event)=>{
+    const [total,setTotal]=useState(0);
+
+    const addtotal=(value)=>{
+        setTotal(value);
+    }
+    
+     const addToCart=(item,event)=>{
          
         setCartItem([...cartItem,item])
         console.log(cartItem);
@@ -18,13 +23,13 @@ const ShopContextProvider=({children})=>{
      let del=(id)=>{
              setCartItem(cartItem.filter((item)=>item.id!=id))
         }
-         const handlePrice =(amount)=>{
-            console.log(price)
-            setPrice(price+amount)
-           }
+        //  const handlePrice =(amount)=>{
+        //     console.log(price)
+        //     setPrice(price+amount)
+        //    }
 
      const value={
-        products,currency,delivery_fee,addToCart,cartItem,setCartItem,price,handlePrice
+        products,currency,delivery_fee,addToCart,cartItem,setCartItem, addtotal,total
     }
     return(
         <ShopContext.Provider value={value }>

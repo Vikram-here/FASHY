@@ -1,9 +1,12 @@
-import React, { useContext } from "react";
+import React, { use, useContext, useEffect } from "react";
 import { ShopContext } from "../context/ShopContext";
+import { useNavigate } from 'react-router-dom';
+import CartTotal from '../components/CartTotal';
 
 const Cart = () => {
-  const { cartItem, setCartItem } = useContext(ShopContext);
-
+  const { cartItem, setCartItem,addtotal  } = useContext(ShopContext);
+    const navigate=useNavigate();
+                                                  
   // Increase Quantity
   const increaseQty = (id) => {
     const updatedCart = cartItem.map((item) =>
@@ -32,6 +35,10 @@ const Cart = () => {
     (total, item) => total + item.price * item.quantity,
     0
   );
+
+  useEffect(()=>{
+    addtotal(totalPrice);
+  },[totalPrice])
 
   return (
     <div style={{ padding: "20px" }}>
@@ -79,14 +86,28 @@ const Cart = () => {
               <p>
                 ${item.price * item.quantity}
               </p>
-               <div className="del-cart">
-                        <button onClick={()=>del(item._id)}><i class="fa-solid fa-trash-can"></i></button>
-                     </div>
+                <div className="del-cart">
+                        <button onClick={()=>del(item._id)}><i class="fa-solid fa-trash-can "></i></button>
+                </div>
             </div>
           ))}
 
           {/* Total Cart Price */}
-          <h3>Total Price: ${totalPrice}</h3>
+          <div className="flex justify-end my-20">
+            <div className="w-full sm:w-[450px">
+            <CartTotal total={totalPrice}></CartTotal>
+
+ 
+  <div className="w-full text-start">
+
+    <button  onClick={()=>navigate('/place-order')} className="bg-black text-white text-sm my-8 px-8 py-3 cursor-pointer">
+            proceed to order
+    </button> 
+
+  </div>
+            </div>
+          </div>
+         
         </>
       )}
     </div>
