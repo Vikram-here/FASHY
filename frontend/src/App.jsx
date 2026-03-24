@@ -28,11 +28,11 @@ function App() {
     },
      {
       path:"/about",
-      element:<><Navbar></Navbar> <About></About><Footer></Footer></>
+      element:<><ShopContextProvider><Navbar></Navbar> <About></About><Footer></Footer></ShopContextProvider></>
     },
      {
       path:"/contact",
-      element:<><Navbar></Navbar><Contact></Contact> <Footer></Footer></>
+      element:<><ShopContextProvider><Navbar></Navbar><Contact></Contact> <Footer></Footer></ShopContextProvider></>
     },
     {
       path:"/product/:productId",
@@ -44,7 +44,7 @@ function App() {
     },
     {
       path:"/login",
-      element:<><Navbar></Navbar> <Login></Login><Footer></Footer></>
+      element:<><ShopContextProvider><Navbar></Navbar> <Login></Login><Footer></Footer></ShopContextProvider></>
     },
     {
       path:"/place-order",
