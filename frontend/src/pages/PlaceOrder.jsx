@@ -61,7 +61,7 @@ const navigate=useNavigate();
         </div>
 
         <div className="w-full text-center mt-8">
-          <button onClick={()=>navigate('/orders')} className='bg-black text-white px-16 py-3 text-sm cursor-pointer'>PLACE ORDER</button>
+          <button onClick={()=>navigate('/orders')} className='bg-white-800 border border-black text-black px-16 py-3 text-sm cursor-pointer hover:bg-black hover:text-white transition-all duration-500'>PLACE ORDER</button>
         </div>
        </div>
 
