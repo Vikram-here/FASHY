@@ -12,5 +12,5 @@ date:{type:Number,required:true},
 quantity:{type:Number,required:true}
 })
 
-const productModel= mongoose.models.product || mongoose.model('product',productSchema);
+const productModel=   mongoose.model('product',productSchema);
 export default productModel;
