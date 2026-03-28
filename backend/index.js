@@ -3,6 +3,7 @@ import cors from 'cors'
 import 'dotenv/config'
 import connectDB from './config/mongodb.js';
 import userRouter from './routes/userRoute.js';
+import productRouter from './routes/productRoute.js';
 const app=express();
 const PORT=8080;
 connectDB().then(()=>{
@@ -16,7 +17,8 @@ app.use(cors())
 
 //api endpoints
 
-app.use('/api/user',userRouter)
+app.use('/api/user',userRouter);
+app.use('/api/product',productRouter)
 
 
 app.get('/',(req,res)=>{
