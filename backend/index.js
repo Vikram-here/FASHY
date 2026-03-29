@@ -4,6 +4,7 @@ import 'dotenv/config'
 import connectDB from './config/mongodb.js';
 import userRouter from './routes/userRoute.js';
 import productRouter from './routes/productRoute.js';
+import connectCloudinary from './config/cloudinary.js';
 const app=express();
 const PORT=8080;
 connectDB().then(()=>{
@@ -11,6 +12,8 @@ connectDB().then(()=>{
  }).catch((err)=>{
     console.log("DB not connected")
  })
+
+ connectCloudinary();
 // middleware
 app.use(express.json())
 app.use(cors())

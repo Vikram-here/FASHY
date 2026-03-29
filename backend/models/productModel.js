@@ -6,8 +6,8 @@ description:{type:String,required:true,},
 price:{type:Number,required:true,},
 image:{type:Array,required:true,},
 category:{type:String,required:true,},
-subcategory:{type:String,required:true,},
-bestseller :{type:boolean},
+subCategory:{type:String,required:true,},
+bestSeller :{type:Boolean},
 date:{type:Number,required:true},
 quantity:{type:Number,required:true}
 })
