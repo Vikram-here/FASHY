@@ -1,12 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { backendUrl } from '../App'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify';
+import { handleError, handleSucces } from './Util'
 
-const Login = () => {
+
+ 
+const Login = ({setToken}) => {
+
+  const navigate=useNavigate();
+
+  const [email,setEmail]=useState('')
+    const [password,setPassword]=useState('')
+
+
 
     const onSubmitHandler=async (e)=>{
         try{
         e.preventDefault();
+        const response=await axios.post(backendUrl + '/api/user/admin',{email,password});
+        console.log(response);
+        if(response.data.success){
+          // setToken(response.data.token);
+          handleSucces("successfully login")
+          setTimeout(()=>{
+              navigate('/home')
+              setToken(true);
+          },1000)
+        }else{
+          handleError(response.data.message);
+        }
+ 
         }catch(error){
-
+          handleError(error.message)
         }
     }
   return (
@@ -16,14 +43,16 @@ const Login = () => {
       <form onSubmit={onSubmitHandler}>
        <div className='mb-3 min-w-72'>
             <p className='text-sm font-medium text-gray-700 mb-2'>Email Address</p>
-            <input className='rounded-md w-full px-3 py-2 border border-gray-300 outline-none' type="email" placeholder='your@gmail.com' required />
+            <input onChange={(e)=>setEmail(e.target.value)} value={email} className='rounded-md w-full px-3 py-2 border border-gray-300 outline-none' type="email" placeholder='your@gmail.com' required />
        </div>
        <div className='mb-3 min-w-72'>
             <p className='text-sm font-medium text-gray-700 mb-2'>Password</p>
-            <input className='rounded-md w-full px-3 py-2 border border-gray-300 outline-none' type="password" placeholder='Enter your password' required />
+            <input onChange={(e)=>setPassword(e.target.value)} value={password} className='rounded-md w-full px-3 py-2 border border-gray-300 outline-none' type="password" placeholder='Enter your password' required />
        </div>
-       <button className='mt-2 w-full py-2 px-4 rounded-md text-white bg-black' type='submit'>Login</button>
+       <button className='cursor-pointer mt-2 w-full py-2 px-4 rounded-md text-white bg-black' type='Submit'>Login</button>
       </form>
+      <ToastContainer></ToastContainer>
+
     </div>
     </div>
   )

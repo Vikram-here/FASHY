@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
@@ -6,15 +6,19 @@ import Add from './pages/Add'
 import List from './pages/List'
 import Order from './pages/Order'
 import Login from './components/Login'
+export  const backendUrl = import.meta.env.VITE_BACKEND_URL
 
 const App = () => {
 
-  const [token,setToken]=useState('');
+  const [token,setToken]=useState(false);
+
+  useEffect(()=>{
+localStorage.setItem('token',token)  },[token])
 
        const router=createBrowserRouter([
     {
       path:"/",
-      element:<div className='bg-gray-70 min-h-screen'><> <Navbar></Navbar> <hr /><div className='flex w-full'><Sidebar></Sidebar></div>
+      element:<div className='bg-gray-70 min-h-screen w-full'><>  <div className='flex w-full flex items-center justify-center'> <Login setToken={setToken}></Login></div>
 
     </> </div>
     },
@@ -23,6 +27,16 @@ const App = () => {
       element:<div className='bg-gray-70 min-h-screen'><> <Navbar></Navbar> <hr /><div className='flex w-full'><Sidebar></Sidebar>
       <div className='w-[70%] mx-auto ml-[max(5vw,25px)] my-8 text-gray-600 text-base'>
        <Add></Add>
+      </div>
+      </div>
+
+    </> </div>
+    },
+     {
+      path:"/home",
+      element:<div className='bg-gray-70 min-h-screen'><> <Navbar></Navbar> <hr /><div className='flex w-full'><Sidebar></Sidebar>
+      <div className='w-[70%] mx-auto ml-[max(5vw,25px)] my-8 text-gray-600 text-base'>
+         
       </div>
       </div>
 
@@ -50,10 +64,8 @@ const App = () => {
   return (
     
     <div>
-      {
-        token === ""? <Login></Login>:<RouterProvider router={router}/> 
-      }
-         
+      <RouterProvider router={router}/> 
+       
 
     </div>
   )
