@@ -47,7 +47,7 @@ console.log(token);
     {
       path:"/list",
       element:<div className='bg-gray-70 min-h-screen'><> <Navbar></Navbar> <hr /><div className='flex w-full'><Sidebar></Sidebar><div className='w-[70%] mx-auto ml-[max(5vw,25px)] my-8 text-gray-600 text-base'>
-       <List></List>
+       <List token={token}></List>
       </div></div>
 
     </> </div>
@@ -56,7 +56,7 @@ console.log(token);
      {
       path:"/order",
       element:<div className='bg-gray-70 min-h-screen'><> <Navbar></Navbar> <hr /><div className='flex w-full'><Sidebar></Sidebar><div className='w-[70%] mx-auto ml-[max(5vw,25px)] my-8 text-gray-600 text-base'>
-        <Order></Order>
+        <Order token={token}></Order>
               </div></div>
 
     </> </div>

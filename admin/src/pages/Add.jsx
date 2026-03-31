@@ -31,8 +31,12 @@ const Add = ({token}) => {
 
      const response = await axios.post(backendUrl + "/api/product/add",formData,{headers:{token}})
      if(response.data.success){
-       toast.success("success")
-        console.log(response.data);
+         handleSucces(response.data.message);
+          setName("");
+           setDescription("");
+          setPrice("");
+           
+         
      }else{
       handleError("something mistake")
      }
@@ -87,7 +91,7 @@ const Add = ({token}) => {
         </div>
       </div>
       <div className='flex gap-2 mt-3'>
-        <input onChange={()=>setBestseller(prev => !prev)}  checked={bestseller} type="checkbox" id="bestseller" required/>
+        <input onChange={()=>setBestseller(prev => !prev)}  checked={bestseller} type="checkbox" id="bestseller"  />
         <label className='cursor-pointer' htmlFor="bestseller">Add to bestseller</label>
       </div>
       <button  className='cursor-pointer w-28 py-3 mt-4 bg-black text-white rounded' type='Submit'>ADD</button>
