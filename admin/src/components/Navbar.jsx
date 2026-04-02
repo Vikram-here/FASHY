@@ -2,7 +2,7 @@ import React from 'react'
 import { assets } from '../assets/admin_assets/assets'
 import { useNavigate } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = ({setToken}) => {
   const navigate=useNavigate();
   return (
     <div className='flex items-center py-3 px-[4%] justify-between'>

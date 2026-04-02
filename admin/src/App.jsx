@@ -6,7 +6,7 @@ import Sidebar from './components/Sidebar'
 import List from './pages/List'
 import Order from './pages/Order'
 import Login from './components/Login'
-export  const backendUrl = import.meta.env.VITE_BACKEND_URL
+export  const backendUrl ="http://localhost:8080"
 
 const App = () => {
 
@@ -26,7 +26,7 @@ console.log(token);
     // },
      {
       path:"/add",
-      element:<div className='bg-gray-70 min-h-screen'><> <Navbar></Navbar> <hr /><div className='flex w-full'><Sidebar></Sidebar>
+      element:<div className='bg-gray-70 min-h-screen'><> <Navbar setToken={setToken}></Navbar> <hr /><div className='flex w-full'><Sidebar></Sidebar>
       <div className='w-[70%] mx-auto ml-[max(5vw,25px)] my-8 text-gray-600 text-base'>
        <Add token={token}></Add>
       </div>
@@ -36,7 +36,7 @@ console.log(token);
     },
      {
       path:"/",
-      element:<div className='bg-gray-70 min-h-screen'><> <Navbar></Navbar> <hr /><div className='flex w-full'><Sidebar></Sidebar>
+      element:<div className='bg-gray-70 min-h-screen'><> <Navbar setToken={setToken}></Navbar> <hr /><div className='flex w-full'><Sidebar></Sidebar>
       <div className='w-[70%] mx-auto ml-[max(5vw,25px)] my-8 text-gray-600 text-base'>
          
       </div>
@@ -46,7 +46,7 @@ console.log(token);
     },
     {
       path:"/list",
-      element:<div className='bg-gray-70 min-h-screen'><> <Navbar></Navbar> <hr /><div className='flex w-full'><Sidebar></Sidebar><div className='w-[70%] mx-auto ml-[max(5vw,25px)] my-8 text-gray-600 text-base'>
+      element:<div className='bg-gray-70 min-h-screen'><> <Navbar setToken={setToken}></Navbar> <hr /><div className='flex w-full'><Sidebar></Sidebar><div className='w-[70%] mx-auto ml-[max(5vw,25px)] my-8 text-gray-600 text-base'>
        <List token={token}></List>
       </div></div>
 
@@ -55,7 +55,7 @@ console.log(token);
     },
      {
       path:"/order",
-      element:<div className='bg-gray-70 min-h-screen'><> <Navbar></Navbar> <hr /><div className='flex w-full'><Sidebar></Sidebar><div className='w-[70%] mx-auto ml-[max(5vw,25px)] my-8 text-gray-600 text-base'>
+      element:<div className='bg-gray-70 min-h-screen'><> <Navbar setToken={setToken}></Navbar> <hr /><div className='flex w-full'><Sidebar></Sidebar><div className='w-[70%] mx-auto ml-[max(5vw,25px)] my-8 text-gray-600 text-base'>
         <Order token={token}></Order>
               </div></div>
 
@@ -67,7 +67,7 @@ console.log(token);
    
     <div>
 
-     {token === ""? <Login setToken={setToken}></Login> :<RouterProvider router={router}/>}  
+     {token === " "? <Login setToken={setToken}></Login> :<RouterProvider router={router}/>}  
        
 
     </div>
