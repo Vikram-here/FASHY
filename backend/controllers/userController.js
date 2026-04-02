@@ -58,7 +58,8 @@ const registerUSer =async (req,res)=>{
         .json({
             message:"signup successfully",
             success:true,
-            token
+            token,
+            userId:userInfo._id
         })
     }catch(err){
         console.log(err);
