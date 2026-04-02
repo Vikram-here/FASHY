@@ -1,4 +1,4 @@
-import React, { use, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { useNavigate } from 'react-router-dom';
 import CartTotal from '../components/CartTotal';
@@ -46,7 +46,7 @@ const Cart = () => {
 
       {cartItem.length === 0 ? (
         <p>Your cart is empty</p>
-      ) : (
+      ):(
         <>
           {cartItem.map((item) => (
             <div
@@ -101,7 +101,7 @@ const Cart = () => {
   <div className="w-full text-start">
 
     <button  onClick={()=>navigate('/place-order')} className="bg-white-800 border border-black text-black px-12 py-3 mt-8 text-sm cursor-pointer hover:bg-black hover:text-white transition-all duration-500">
-            Proceed to order
+            Proceed to Checkout
     </button> 
 
   </div>

@@ -13,7 +13,7 @@ const ProductItem = ({id,image,name,price,prod}) => {
         </div>
         <p className='pt-3 pb-1 text-sm'>{name}</p>
         <p className='text-sm font-medium'>{currency}{price}</p>
-        <div className='flex justify-center mt-1'>        <button className=' cursor-pointer border w-full text-center   mt-1 bg-black text-white' onClick={()=>addToCart(prod)}>add to cart</button>
+        <div className='flex justify-center mt-1'>        <button className=' cursor-pointer border w-full text-center   mt-1 bg-black text-white' onClick={()=>addToCart(prod,id)}>add to cart</button>
 </div>
      </Link>
      </div>

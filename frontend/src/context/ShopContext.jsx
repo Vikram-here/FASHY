@@ -1,7 +1,7 @@
 import { createContext, useEffect } from "react";
 // import { products} from '../assets/frontend_assets/assets'
 import { useState } from "react";
-import axios from "axios";
+import axios, { Axios } from "axios";
 import { handleError } from "../../../admin/src/components/Util";
 import { useNavigate } from "react-router-dom";
 export const ShopContext=createContext();
@@ -14,16 +14,25 @@ const ShopContextProvider=({children})=>{
     const[cartItem,setCartItem]=useState([]);
     const [total,setTotal]=useState(0);
     const[products,setProducts]=useState([]);
+    const [demo,setDemo]=useState([])
     const [token,setToken]=useState('')
      const navigate=useNavigate();
     const addtotal=(value)=>{
         setTotal(value);
     }
     
-     const addToCart=(item,event)=>{
+     const addToCart= async (item,itemId,event)=>{
           
         setCartItem([...cartItem,item])
-        console.log(cartItem);
+
+ 
+        if(token){
+            try{
+            await axios.post(backendUrl + '/api/cart/add',{itemId},{headers:{token}})
+            }catch(error){
+
+            }
+        }
         
     }
      let del=(id)=>{
@@ -45,19 +54,40 @@ const getProductData = async ()=>{
      }
     
     }catch(error){
-       console.log(error)
+       console.log("back")
     }
 }
 
+// const getUserCart=async (token)=>{
+// try{
+// const response=await axios.post(backendUrl + '/api/cart/get',{headers:{token}})
+// setDemo(response.data);
+// //   if (response.data.success) {
+// //       setDemo(response.data.cartData);
+// //      }
+
+ 
+ 
+// }catch(error){
+
+// }
+// }
+ useEffect(()=>{
+        if(!token && localStorage.getItem('token'))
+            setToken(localStorage.getItem('token'))
+            //  getUserCart(localStorage.getItem('token'))
+    },[])
 
     useEffect(()=>{
         getProductData();
     },[])
+      useEffect(()=>{
+        console.log("demo see ",demo)
+    },[demo])
+ 
 
-    useEffect(()=>{
-        if(!token && localStorage.getItem('token'))
-            setToken(localStorage.getItem('token'))
-    },[])
+
+   
 
      const value={
         products,navigate,setToken,token,currency,delivery_fee,addToCart,cartItem,setCartItem, addtotal,total,backendUrl

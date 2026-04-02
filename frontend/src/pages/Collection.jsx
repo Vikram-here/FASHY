@@ -95,11 +95,11 @@ const Collection = () => {
         <div className="flex justify-between text-base sm:text-2xl mb-4">
           <Title text1={'ALL'} text2={'COLLECTIONS'}></Title>
           {/* products sort */}
-          <select className='border-2 border-gray-300 text-sm px-2'>
+          {/* <select className='border-2 border-gray-300 text-sm px-2'>
             <option value="relavent">sort by :relavent</option>
             <option value="low-high">sort by :low-high</option>
             <option value="high-low">sort by :high-low</option>
-          </select>
+          </select> */}
         </div>
         {/* map products */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-6">

@@ -25,7 +25,9 @@ const response =await axios.post(backendUrl + "/api/user/register",{name,email,p
 const response =await axios.post(backendUrl + "/api/user/login",{email,password})
  if(response.data.success){
   setToken(response.data.token)
-  localStorage.setItem("token",response.data.token)
+  localStorage.setItem("token",response.data.token);
+  localStorage.setItem("userId",response.data.userId);
+
 
  }
 
