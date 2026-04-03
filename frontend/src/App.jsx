@@ -12,6 +12,7 @@ import Orders from './pages/Orders'
 import Navbar from './components/Navbar'
 import ShopContextProvider from './context/ShopContext'
 import Footer from './components/Footer'
+import Verify from './pages/Verify'
 
 function App() {
      const router=createBrowserRouter([
@@ -53,6 +54,10 @@ function App() {
     {
       path:"/orders",
       element:<><ShopContextProvider><Navbar></Navbar><Orders></Orders><Footer></Footer></ShopContextProvider></>
+    },
+    {
+      path:"/verify",
+      element:<><ShopContextProvider><Navbar></Navbar> <Verify></Verify><Footer></Footer></ShopContextProvider></>
     }
 
   ])
