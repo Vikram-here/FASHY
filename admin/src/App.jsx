@@ -10,7 +10,7 @@ export  const backendUrl ="http://localhost:8080"
 
 const App = () => {
 
-  const [token,setToken]=useState("");
+  const [token,setToken]=useState(" ");
 
   useEffect(()=>{
 localStorage.setItem('token',token);
