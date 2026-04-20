@@ -2,9 +2,7 @@ import React, { useState } from 'react'
 import { assets } from '../assets/admin_assets/assets'
 import axios from 'axios'
 import { backendUrl } from '../App'
-import { handleError, handleSucces } from '../components/Util'
-import { toast, ToastContainer } from 'react-toastify'
-
+  
 const Add = ({token}) => {
   const [image1,setImage1]=useState(false)
 
@@ -31,15 +29,14 @@ const Add = ({token}) => {
 
      const response = await axios.post(backendUrl + "/api/product/add",formData,{headers:{token}})
      if(response.data.success){
-         handleSucces(response.data.message);
-          setName("");
+           setName("");
            setDescription("");
           setPrice("");
            
          
      }else{
-      handleError("something mistake")
-     }
+ 
+    }
     
 
     }catch(error){
@@ -97,8 +94,7 @@ const Add = ({token}) => {
       <button  className='cursor-pointer w-28 py-3 mt-4 bg-black text-white rounded' type='Submit'>ADD</button>
       
      </form>
-         <ToastContainer></ToastContainer>
-     </div>
+      </div>
      </div>
      
 
