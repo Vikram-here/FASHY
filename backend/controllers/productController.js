@@ -3,7 +3,7 @@ import productModel from '../models/productModel.js'
 // function for add product 
 const addProduct=async (req,res)=>{
 try{
-const {name,description,price,category,subCategory,bestSeller,quantity} =req.body;
+const {name,description,price,category,subCategory,bestseller,quantity} =req.body;
 const image1=req.files.image1[0];
 
 const images=[image1].filter((item)=>item!== undefined)
@@ -21,7 +21,7 @@ const productData={
     category,
     subCategory,
     price:Number(price),
-    bestSeller: bestSeller === "true" ? true : false,
+    bestSeller: bestseller === "true" ? true : false,
     quantity:Number(quantity),
     image:imagesUrl,
     date:Date.now()
