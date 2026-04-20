@@ -49,8 +49,7 @@ const getProductData = async ()=>{
      if(response.data.success){
         setProducts(response.data.products)
      }else{
-        handleError(response.data.message)
-     }
+      }
     
     }catch(error){
        console.log("back")
