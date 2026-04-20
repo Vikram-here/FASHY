@@ -6,7 +6,7 @@ import Sidebar from './components/Sidebar'
 import List from './pages/List'
 import Order from './pages/Order'
 import Login from './components/Login'
-export  const backendUrl ="http://localhost:8080"
+export  const backendUrl =import.meta.env.VITE_BACKEND_URL;
 
 const App = () => {
 
