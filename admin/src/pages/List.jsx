@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { backendUrl } from '../App'
- 
+import { handleError, handleSucces } from '../components/Util'
+import { ToastContainer } from 'react-toastify'
 
 const List = ({token}) => {
 
@@ -11,9 +12,11 @@ try{
 const response =await axios.get(backendUrl + "/api/product/list")
 
 if(response.data.success){
- setList(response.data.products)
+  handleSucces(response.data.message)
+setList(response.data.products)
 }else{
- }
+  handleError("error")
+}
  
 
 }catch(error){
@@ -63,7 +66,8 @@ if(response.data.success){
                 </div>
               ))
              }
-       </div>
+        <ToastContainer></ToastContainer>
+      </div>
      </div>
   )
 }

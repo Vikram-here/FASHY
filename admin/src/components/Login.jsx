@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import { backendUrl } from '../App'
 import axios from 'axios'
 // import { useNavigate } from 'react-router-dom'
- 
+import { ToastContainer } from 'react-toastify';
+import { handleError, handleSucces } from './Util'
+
 
  
 const Login = ({setToken}) => {
@@ -21,15 +23,18 @@ const Login = ({setToken}) => {
         console.log(response);
         if(response.data.success){
           // setToken(response.data.token);
-           setTimeout(()=>{
+          handleSucces("successfully login")
+          setTimeout(()=>{
               // navigate('/home')
               setToken(response.data.token);
           },1000)
         }else{
-         }
+          handleError(response.data.message);
+        }
  
         }catch(error){
-         }
+          handleError(error.message)
+        }
     }
   return (
     <div className='flex items-center justify-center mt-50'>
@@ -46,7 +51,8 @@ const Login = ({setToken}) => {
        </div>
        <button className='cursor-pointer mt-2 w-full py-2 px-4 rounded-md text-white bg-black' type='Submit'>Login</button>
       </form>
- 
+      <ToastContainer></ToastContainer>
+
     </div>
     </div>
   )

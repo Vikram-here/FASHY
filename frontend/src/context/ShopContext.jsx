@@ -2,7 +2,6 @@ import { createContext, useEffect } from "react";
 // import { products} from '../assets/frontend_assets/assets'
 import { useState } from "react";
 import axios, { Axios } from "axios";
-import { handleError } from "../../../admin/src/components/Util";
 import { useNavigate } from "react-router-dom";
 export const ShopContext=createContext();
 
