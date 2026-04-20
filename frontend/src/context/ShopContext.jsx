@@ -8,7 +8,7 @@ export const ShopContext=createContext();
 const ShopContextProvider=({children})=>{
     const currency='$';
     const delivery_fee=10;
-    const backendUrl=process.env.backendUrl;
+    const backendUrl=import.meta.env.VITE_BACKEND_URL;
    
     const[cartItem,setCartItem]=useState([]);
     const [total,setTotal]=useState(0);
