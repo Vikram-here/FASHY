@@ -14,7 +14,7 @@ const About = () => {
   <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum odio eligendi rerum numquam quae corrupti, officia optio. Similique, quidem sunt assumenda ea explicabo neque illum blanditiis voluptas sapiente sequi ad.</p>
   <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio, est quod ratione voluptatem facilis, sit hic facere cum ullam odit qui fugiat veritatis aliquid cumque eum quia excepturi ducimus eius.</p>
   <b tex-gray-800>OUR MISSION</b>
-  <p> our mission at forever is to empower customer with choice convience</p>
+  <p> our mission at trendwear is to empower customer with choice convience</p>
   </div>
   </div>
  </div>
